@@ -13,9 +13,10 @@ const Specials = () => {
   return (
     <div>
       {
-        specialState.map(characters =>{
+        specialState.map((characters, i )=>{
           return <SpecialButton 
-                    special = {specialState}
+                    special = {characters}
+                    key = {i}
                   />
         })
       }

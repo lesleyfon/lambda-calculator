@@ -9,6 +9,14 @@ import "./App.css";
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
 import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
+import Display from "./components/DisplayComponents/Display";
+
+const containerStyeles = {
+  backgroundColor: '#a71d36',
+  width: '750px',
+  margin: '0 auto',
+  padding: '10px'
+}
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -18,9 +26,10 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   return (
-    <div className="container">
+    <div className="container" style={containerStyeles}>
       <Logo />
       <div className="App">
+        <Display/>
         <Numbers />
         <Operators />
         <Specials />
