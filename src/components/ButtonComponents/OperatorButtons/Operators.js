@@ -14,7 +14,6 @@ const Operators = () => {
     <div>
       {
         signs.map((e, i)=>{
-          console.log(e)
           return <OperatorButton
                     sign ={ e.char}
                     value = {e.value }
