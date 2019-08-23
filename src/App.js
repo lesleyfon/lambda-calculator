@@ -39,7 +39,7 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
 
-  // function returns a whatever is passed in it.
+  // function returns a whatever is passed in it onclick.
   function thisNumber(num){
     console.log(num)
     return num;
@@ -53,6 +53,7 @@ function App() {
      console.log(special)
     return special
    }
+   // End of Click Functions
   return (
     <div className="container" style={containerStyeles}>
       <Logo />
