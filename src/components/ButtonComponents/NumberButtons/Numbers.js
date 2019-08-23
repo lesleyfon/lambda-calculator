@@ -9,8 +9,13 @@ const Numbers = () => {
 
   // STEP 2 - add the imported data to state
   const [nums] = useState(data.numbers)
+ const wrapperStyles={
+  display: 'flex',
+  flexWrap:'wrap',
+  justifyContent: 'space-between'
+ }
   return (
-    <div className ='wrrapper'> 
+    <div className ='wrapper' style={wrapperStyles}> 
       {nums.map((n, i)=>{
        return <NumberButton 
                 key = {i}

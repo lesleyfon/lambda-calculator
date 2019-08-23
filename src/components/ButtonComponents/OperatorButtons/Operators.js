@@ -8,10 +8,17 @@ import OperatorButton from './OperatorButton'
 
 const Operators = () => {
 
-  const [signs] = useState(operatorsign.operators )
+  const [signs] = useState(operatorsign.operators );
+
+  const operatorStyles = {
+    display: 'flex',
+    flexFlow: 'column',
+    // width: '15%',
+    
+    }
   // STEP 2 - add the imported data to state
   return (
-    <div>
+    <div style={operatorStyles}>
       {
         signs.map((e, i)=>{
           return <OperatorButton

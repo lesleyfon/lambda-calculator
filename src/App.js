@@ -13,11 +13,24 @@ import Display from "./components/DisplayComponents/Display";
 
 const containerStyeles = {
   backgroundColor: '#a71d36',
-  width: '750px',
+  width: '470px',
   margin: '0 auto',
-  padding: '10px'
+  padding: '35px'
 }
 
+const appStyles = {
+  margin: '0 auto',
+  height: '100%',
+  display: 'flex',
+  justifyContent: "space-around"
+}
+
+const left ={
+  width : '22.25%'
+}
+const right = {
+  width :'72.25%'
+}
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
@@ -28,11 +41,13 @@ function App() {
   return (
     <div className="container" style={containerStyeles}>
       <Logo />
-      <div className="App">
-        <Display/>
-        <Numbers />
-        <Operators />
-        <Specials />
+      <Display/>
+      <div className="App" style={appStyles}>
+        <div className = 'specialNumbers' style={right} >
+          <Specials />
+          <Numbers />
+        </div>
+        <Operators style={left}/>
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
       </div>
     </div>

@@ -1,8 +1,10 @@
 import React from "react";
 
 const NumberButton = (props) => {
+  const numStyes = {
+  }
   return (
-    <div><button >{props.calNumbers}</button></div>
+    <button style={numStyes}>{props.calNumbers}</button>
       // {/* Display a button element rendering the data being passed down from the parent container on props */}
     
   );

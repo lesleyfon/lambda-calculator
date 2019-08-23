@@ -9,9 +9,12 @@ import specialSymbols from './../../../data'
 const Specials = () => {
   // STEP 2 - add the imported data to state
   const [specialState] = useState(specialSymbols.specials);
-
+  const numberStyles = {
+    display: 'flex',
+    justifyContent:'space-between'
+  }
   return (
-    <div>
+    <div style ={numberStyles}>
       {
         specialState.map((characters, i )=>{
           return <SpecialButton 
