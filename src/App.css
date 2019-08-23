@@ -2,5 +2,6 @@ button{
     width: 70px;
     height: 70px;
     border-radius: 360px;
-    margin-right: 35px
+    margin-right: 35px;
+    margin-top: 10px;
 }

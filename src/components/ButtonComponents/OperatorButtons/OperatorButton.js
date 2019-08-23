@@ -6,7 +6,7 @@ const OperatorButton = (props) => {
   }
   return (
     <>
-      <button style={btnStyes}> {props.sign} </button>
+      <button style={btnStyes} onClick={()=>{console.log(props.sign)}}> {props.sign} </button>
       {/* Display a button element rendering the data being passed down from the parent container on props */}
     </>
   );
