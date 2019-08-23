@@ -6,8 +6,8 @@ import OperatorButton from './OperatorButton'
 
 //Import your array data to from the provided data file
 
-const Operators = () => {
-
+const Operators = (props) => {
+  
   const [signs] = useState(operatorsign.operators );
 
   const operatorStyles = {
@@ -25,6 +25,7 @@ const Operators = () => {
                     sign ={ e.char}
                     value = {e.value }
                     key = {i}
+                    thisOperator = {props.thisOperator}
                 />
         })
       }

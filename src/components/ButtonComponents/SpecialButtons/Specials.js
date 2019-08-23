@@ -6,7 +6,7 @@ import specialSymbols from './../../../data'
 
 //Import your array data to from the provided data file
 
-const Specials = () => {
+const Specials = (props) => {
   // STEP 2 - add the imported data to state
   const [specialState] = useState(specialSymbols.specials);
   const numberStyles = {
@@ -20,6 +20,7 @@ const Specials = () => {
           return <SpecialButton 
                     special = {characters}
                     key = {i}
+                    thisSpecials = {props.thisSpecials}
                   />
         })
       }

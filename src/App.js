@@ -44,7 +44,15 @@ function App() {
     console.log(num)
     return num;
    }
- 
+
+   function thisOperator(operator){
+     console.log(operator)
+     return operator
+   }
+   function thisSpecials(special){
+     console.log(special)
+    return special
+   }
   return (
     <div className="container" style={containerStyeles}>
       <Logo />
@@ -52,13 +60,17 @@ function App() {
       <div className="App" style={appStyles}>
         <div className = 'specialNumbers' style={right} >
           <Specials 
+          thisSpecials = {thisSpecials}
           />
           <Numbers 
           //pass the function on line 43 as a prop to Numbers component
           thisNumber = {thisNumber}
           />
         </div>
-        <Operators style={left}/>
+        <Operators 
+          style={left}
+          thisOperator = {thisOperator}
+        />
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
       </div>
     </div>
