@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 import Numbers from './components/ButtonComponents/NumberButtons/Numbers';
 import Operators from './components/ButtonComponents/OperatorButtons/Operators'
@@ -10,6 +10,8 @@ import "./App.css";
 import Logo from "./components/DisplayComponents/Logo";
 import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 import Display from "./components/DisplayComponents/Display";
+import { equal } from "assert";
+
 
 const containerStyeles = {
   backgroundColor: '#a71d36',
@@ -37,35 +39,61 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
-
-
+  const [firstNumEntry, setFirstNumEntry] = useState('');
+  const [secondNumEntry, setSecondNumEntry] = useState('');
+  const [symbols, setSymbols] = useState('');
+  const [total, setTotal] = useState('');
+  const [isCalculate, setIsCalculate] = useState(true)
+ 
   // function returns a whatever is passed in it onclick.
   function thisNumber(num){
-    console.log(num)
-    return num;
-   }
-
-   function thisOperator(operator){
-     console.log(operator)
-     return operator
-   }
-   function thisSpecials(special){
-     console.log(special)
+    setFirstNumEntry(firstNumEntry + num);
+    if (symbols && symbols !== '=') {
+      setFirstNumEntry(firstNumEntry );
+      setSecondNumEntry(secondNumEntry + num);
+      setTotal(`${firstNumEntry}${symbols}`);
+    } 
+     if(symbols === '='){
+      console.log('equal')
+    }
+  }
+  function thisOperator(operator){  
+    setSymbols(operator);
+    }
+   function thisSpecials(special){ 
     return special
    }
+   function lastTry(someInt){
+    setTotal(total + someInt)
+    console.log(total)
+   }
+   function reset(){
+     lastTry(secondNumEntry)
+     setFirstNumEntry('');
+     setSecondNumEntry('');
+     setSymbols('')
+   }
+   
    // End of Click Functions
   return (
     <div className="container" style={containerStyeles}>
       <Logo />
-      <Display/>
+      <Display
+        firstEntry = {firstNumEntry}  
+        secondEntry = {secondNumEntry}   
+        symbols ={symbols} 
+        reset = {reset}
+        total = {total}
+        setIsCalculate = {setIsCalculate}
+        isCalculate = {isCalculate}
+      />
       <div className="App" style={appStyles}>
         <div className = 'specialNumbers' style={right} >
           <Specials 
           thisSpecials = {thisSpecials}
           />
           <Numbers 
-          //pass the function on line 43 as a prop to Numbers component
-          thisNumber = {thisNumber}
+            thisNumber = {thisNumber}
           />
         </div>
         <Operators 

@@ -1,6 +1,7 @@
 import React, {useState}from "react";
 import operatorsign  from './../../../data'
 import OperatorButton from './OperatorButton'
+import { pipelineTopicExpression } from "@babel/types";
 
 //import any components needed
 
@@ -13,19 +14,18 @@ const Operators = (props) => {
   const operatorStyles = {
     display: 'flex',
     flexFlow: 'column',
-    // width: '15%',
-    
     }
   // STEP 2 - add the imported data to state
   return (
     <div style={operatorStyles}>
       {
         signs.map((e, i)=>{
+
           return <OperatorButton
-                    sign ={ e.char}
+                    sign ={ e.char } 
                     value = {e.value }
-                    key = {i}
-                    thisOperator = {props.thisOperator}
+                    key = { i }
+                    thisOperator = { props.thisOperator }
                 />
         })
       }
