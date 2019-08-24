@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 import Numbers from './components/ButtonComponents/NumberButtons/Numbers';
 import Operators from './components/ButtonComponents/OperatorButtons/Operators'
@@ -38,38 +38,28 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
-  const [firstNumEntry, setFirstNumEntry] = useState('');
-  const [secondNumEntry, setSecondNumEntry] = useState('');
-  const [symbols, setSymbols] = useState('');
-  const [total, setTotal] = useState('');
-  const [isCalculate, setIsCalculate] = useState(true)
+  const [ all, setAll ] = useState('');
+  const [symbol, setSympol] = useState('')
+  const [total, setTotal] = useState(0)
   
-  useEffect(()=>{
-    console.clear()
-  })
   // function returns a whatever is passed in it onclick.
   function thisNumber(num){
-    setFirstNumEntry(firstNumEntry + num);
-    if (symbols && symbols !== '=') {
-      setFirstNumEntry(firstNumEntry );
-      setSecondNumEntry(secondNumEntry + num);
-      setTotal(`${firstNumEntry}${symbols}`);
-    } 
+    setAll(all + num)
   }
   function thisOperator(operator){  
-    setSymbols(operator);
+    setSympol(operator)
+    setAll(all + operator)
+    if (operator ==='='){
+      let l = eval(all)
+      setTotal(l)
+      reset()
     }
+  }
    function thisSpecials(special){ 
     return special
    }
-   function lastTry(someInt){
-    setTotal(total + someInt);
-   }
    function reset(){
-     lastTry(secondNumEntry)
-     setFirstNumEntry('');
-     setSecondNumEntry('');
-     setSymbols('')
+     setAll('')
    }
    
    // End of Click Functions
@@ -77,13 +67,10 @@ function App() {
     <div className="container" style={containerStyeles}>
       <Logo />
       <Display
-        firstEntry = {firstNumEntry}  
-        secondEntry = {secondNumEntry}   
-        symbols ={symbols} 
         reset = {reset}
+        all = {all}
+        symbol = {symbol}
         total = {total}
-        setIsCalculate = {setIsCalculate}
-        isCalculate = {isCalculate}
       />
       <div className="App" style={appStyles}>
         <div className = 'specialNumbers' style={right} >
