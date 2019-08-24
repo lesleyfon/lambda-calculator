@@ -4,4 +4,10 @@ button{
     border-radius: 360px;
     margin-right: 35px;
     margin-top: 10px;
+    font-size: 1.6rem;
+    box-shadow: 0 0 6px #000000;
+}
+ 
+button:focus{
+    outline: none;
 }

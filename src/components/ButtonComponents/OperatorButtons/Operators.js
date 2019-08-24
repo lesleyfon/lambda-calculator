@@ -14,6 +14,7 @@ const Operators = (props) => {
   const operatorStyles = {
     display: 'flex',
     flexFlow: 'column',
+   
     }
   // STEP 2 - add the imported data to state
   return (

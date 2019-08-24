@@ -6,10 +6,15 @@ const SpecialButton = props => {
   function handleSpecialsClick(sign){
     return props.thisSpecials(sign)
   }
-  
+  const specialStyles = {
+    backgroundColor: '#235d9e',
+    borderColor: "#184379",
+    color: '#ffffff'
+  }
   return (
     <>
       <button 
+        style ={specialStyles}
         onClick= {()=>{
         handleSpecialsClick(props.special)
         }}>

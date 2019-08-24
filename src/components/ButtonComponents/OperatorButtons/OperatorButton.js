@@ -2,7 +2,11 @@ import React from "react";
 
 const OperatorButton = (props) => {
   const btnStyes = {
-    marginRight:'0px'
+    marginRight:'0px',
+    backgroundColor: '#247293',
+    color: 'white', 
+    borderColor: 'rgb(36, 114, 147)'
+
   }
   function handleOperatorClick(sign){
  

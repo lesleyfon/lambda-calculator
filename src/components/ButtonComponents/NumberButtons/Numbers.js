@@ -13,14 +13,25 @@ const Numbers = (props) => {
   flexWrap:'wrap',
   justifyContent: 'space-between'
  }
-
+ const zeroStyle = {
+   width: '175px',
+   background: '#184379',
+   borderColor: '#184379',
+   color: 'white'
+ }
   return (
     <div className ='wrapper' style={wrapperStyles}> 
       {nums.map((n, i)=>{
-       return <NumberButton 
+        
+       return  i === 9 ? <NumberButton 
                 key = {i}
                 calNumbers = {n}
-                //we pass props from the App.js into child component as a props
+                style = {zeroStyle}
+                thisNumber = {props.thisNumber}
+                /> :
+                <NumberButton 
+                key = {i}
+                calNumbers = {n}
                 thisNumber = {props.thisNumber}
                 />
       })}

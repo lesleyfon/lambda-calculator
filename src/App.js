@@ -10,7 +10,6 @@ import "./App.css";
 import Logo from "./components/DisplayComponents/Logo";
 import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 import Display from "./components/DisplayComponents/Display";
-import { equal } from "assert";
 
 
 const containerStyeles = {
@@ -44,7 +43,10 @@ function App() {
   const [symbols, setSymbols] = useState('');
   const [total, setTotal] = useState('');
   const [isCalculate, setIsCalculate] = useState(true)
- 
+  
+  useEffect(()=>{
+    console.clear()
+  })
   // function returns a whatever is passed in it onclick.
   function thisNumber(num){
     setFirstNumEntry(firstNumEntry + num);
@@ -53,9 +55,6 @@ function App() {
       setSecondNumEntry(secondNumEntry + num);
       setTotal(`${firstNumEntry}${symbols}`);
     } 
-     if(symbols === '='){
-      console.log('equal')
-    }
   }
   function thisOperator(operator){  
     setSymbols(operator);
@@ -64,8 +63,7 @@ function App() {
     return special
    }
    function lastTry(someInt){
-    setTotal(total + someInt)
-    console.log(total)
+    setTotal(total + someInt);
    }
    function reset(){
      lastTry(secondNumEntry)
